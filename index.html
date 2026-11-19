@@ -1,0 +1,141 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#ffffff">
+  <title>ZYMEKO | Your World. Your Story.</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f7f8fc;
+      color: #171827;
+    }
+    header {
+      background: white;
+      padding: 18px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #eee;
+    }
+    .brand {
+      font-size: 27px;
+      font-weight: 900;
+      background: linear-gradient(90deg,#6155ff,#f343a1);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    .container {
+      max-width: 550px;
+      margin: auto;
+      padding: 18px 16px 90px;
+    }
+    .welcome {
+      padding: 25px;
+      border-radius: 22px;
+      background: linear-gradient(125deg,#6155ff,#d84bd6);
+      color: white;
+    }
+    .welcome h1 { margin: 0 0 10px; }
+    .welcome p { line-height: 1.5; }
+    button {
+      border: none;
+      padding: 12px 17px;
+      border-radius: 12px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .primary { background: #6255ff; color: white; }
+    .card {
+      margin-top: 18px;
+      background: white;
+      border-radius: 18px;
+      padding: 20px;
+      box-shadow: 0 4px 20px #2020400a;
+    }
+    .card h2 { margin-top: 0; }
+    .features {
+      display: grid;
+      grid-template-columns: repeat(2,1fr);
+      gap: 12px;
+    }
+    .feature {
+      background: #f2f0ff;
+      padding: 20px 10px;
+      text-align: center;
+      border-radius: 15px;
+      font-weight: bold;
+    }
+    nav {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      display: flex;
+      justify-content: space-around;
+      padding: 14px 4px 24px;
+      background: white;
+      border-top: 1px solid #eee;
+    }
+    nav button {
+      background: none;
+      padding: 6px;
+      font-size: 12px;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="brand">ZYMEKO</div>
+    <span>🔔</span>
+  </header>
+
+  <main class="container">
+    <section class="welcome">
+      <h1>Your World. Your Story.</h1>
+      <p>Discover, create and connect in one place.</p>
+      <button onclick="showMessage()">Get Started</button>
+    </section>
+
+    <section class="card">
+      <h2>Explore ZYMEKO</h2>
+      <div class="features">
+        <div class="feature">🎬 Shorts</div>
+        <div class="feature">▶️ Videos</div>
+        <div class="feature">📸 Photos</div>
+        <div class="feature">✨ Stories</div>
+        <div class="feature">💬 Chats</div>
+        <div class="feature">🔴 Live</div>
+        <div class="feature">👥 Communities</div>
+        <div class="feature">🛒 Marketplace</div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Welcome to ZYMEKO</h2>
+      <p>Your social universe starts here.</p>
+      <p>More features are coming soon.</p>
+    </section>
+  </main>
+
+  <nav>
+    <button onclick="showMessage()">🏠 Home</button>
+    <button onclick="showMessage()">🔎 Explore</button>
+    <button onclick="showMessage()">➕ Create</button>
+    <button onclick="showMessage()">💬 Chats</button>
+    <button onclick="showMessage()">👤 Profile</button>
+  </nav>
+
+  <script>
+    function showMessage() {
+      alert("ZYMEKO is under development!");
+    }
+  </script>
+</body>
+</html>
