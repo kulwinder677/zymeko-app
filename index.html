@@ -2,140 +2,254 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#ffffff">
-  <title>ZYMEKO | Your World. Your Story.</title>
-  <style>
-    * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #f7f8fc;
-      color: #171827;
-    }
-    header {
-      background: white;
-      padding: 18px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-bottom: 1px solid #eee;
-    }
-    .brand {
-      font-size: 27px;
-      font-weight: 900;
-      background: linear-gradient(90deg,#6155ff,#f343a1);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-    }
-    .container {
-      max-width: 550px;
-      margin: auto;
-      padding: 18px 16px 90px;
-    }
-    .welcome {
-      padding: 25px;
-      border-radius: 22px;
-      background: linear-gradient(125deg,#6155ff,#d84bd6);
-      color: white;
-    }
-    .welcome h1 { margin: 0 0 10px; }
-    .welcome p { line-height: 1.5; }
-    button {
-      border: none;
-      padding: 12px 17px;
-      border-radius: 12px;
-      font-weight: bold;
-      cursor: pointer;
-    }
-    .primary { background: #6255ff; color: white; }
-    .card {
-      margin-top: 18px;
-      background: white;
-      border-radius: 18px;
-      padding: 20px;
-      box-shadow: 0 4px 20px #2020400a;
-    }
-    .card h2 { margin-top: 0; }
-    .features {
-      display: grid;
-      grid-template-columns: repeat(2,1fr);
-      gap: 12px;
-    }
-    .feature {
-      background: #f2f0ff;
-      padding: 20px 10px;
-      text-align: center;
-      border-radius: 15px;
-      font-weight: bold;
-    }
-    nav {
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      display: flex;
-      justify-content: space-around;
-      padding: 14px 4px 24px;
-      background: white;
-      border-top: 1px solid #eee;
-    }
-    nav button {
-      background: none;
-      padding: 6px;
-      font-size: 12px;
-      color: #555;
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#ffffff">
+<title>ZYMEKO — Your World. Your Story.</title>
+<style>
+:root{--purple:#6655f5;--pink:#f04fa2;--ink:#202035;--muted:#777b91}
+*{box-sizing:border-box}
+body{margin:0;background:#f5f6fc;color:var(--ink);font-family:Arial,Helvetica,sans-serif}
+button,input,textarea{font:inherit}
+button{border:0;cursor:pointer}
+header{position:sticky;top:0;z-index:10;background:#fff;display:flex;justify-content:space-between;align-items:center;padding:16px;border-bottom:1px solid #eee}
+.logo{font-size:27px;font-weight:900;letter-spacing:-1px;background:linear-gradient(90deg,#6154f8,#ed4ca0);background-clip:text;-webkit-background-clip:text;color:transparent}
+.actions{display:flex;gap:9px}
+.circle{width:38px;height:38px;border-radius:50%;background:#f0edff;font-size:19px}
+main{max-width:560px;margin:auto;padding:15px 14px 100px}
+.tabs{display:flex;gap:9px;overflow:auto;margin-bottom:15px}
+.tab{white-space:nowrap;border-radius:24px;padding:11px 17px;background:#fff;font-weight:700;color:#666}
+.tab.active{background:var(--purple);color:#fff}
+.stories{display:flex;gap:14px;overflow-x:auto;padding:5px 0 19px}
+.story{min-width:67px;text-align:center;font-size:12px}
+.avatar{width:62px;height:62px;margin:0 auto 7px;border-radius:50%;padding:3px;background:linear-gradient(135deg,#6154f8,#ff57ad)}
+.avatar span{display:grid;place-items:center;width:100%;height:100%;background:#edeaff;border:3px solid white;border-radius:50%;font-size:26px}
+.hero{padding:27px 21px;border-radius:23px;background:linear-gradient(120deg,#6255fa,#a44feb,#f25da4);color:#fff;box-shadow:0 10px 25px #6756f733}
+.hero h1{font-size:29px;margin:0 0 10px}
+.hero p{font-size:14px;line-height:1.6}
+.primary{background:#fff;color:#6255ed;border-radius:25px;padding:12px 20px;font-weight:700}
+.shortcuts{display:grid;grid-template-columns:repeat(4,1fr);gap:9px;margin:19px 0}
+.shortcut{background:#fff;border-radius:15px;padding:13px 3px;font-size:12px;font-weight:700}
+.shortcut span{display:block;font-size:25px;margin-bottom:8px}
+.card,.panel{background:#fff;border-radius:20px;margin-bottom:17px;overflow:hidden;box-shadow:0 4px 20px #17172d0b}
+.panel{padding:20px}
+.post-head{padding:14px;display:flex;align-items:center;gap:10px}
+.photo{width:43px;height:43px;background:#ece8ff;border-radius:50%;display:grid;place-items:center;font-size:23px}
+.post-head strong{font-size:14px}
+.post-head small{display:block;color:var(--muted);margin-top:4px}
+.follow{margin-left:auto;background:#f0edff;color:#6555f6;padding:9px 13px;border-radius:20px}
+.post-visual{height:260px;background:linear-gradient(145deg,#93d9f3,#4a8ac8 48%,#396a62);display:grid;place-items:center;color:white;text-align:center;font-size:21px}
+.post-visual span{font-size:65px;display:block;margin-bottom:12px}
+.post-buttons{display:flex;gap:19px;padding:14px}
+.post-buttons button{background:none;font-size:23px}
+.liked{color:#ed4489}
+.post-caption{padding:0 15px 17px;font-size:14px;line-height:1.6}
+small{color:var(--muted)}
+.hidden{display:none!important}
+.search{width:100%;padding:13px;border:1px solid #ddd;border-radius:13px;margin-bottom:15px}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.tile{padding:24px 8px;text-align:center;border-radius:15px;background:linear-gradient(135deg,#ebe8ff,#ffe8f2);font-weight:700}
+textarea{width:100%;min-height:110px;border:1px solid #ddd;border-radius:13px;padding:13px;resize:vertical}
+.submit{background:var(--purple);color:white;padding:12px 18px;border-radius:20px;font-weight:700}
+.notice{background:#fff4df;color:#805b1d;padding:13px;border-radius:12px;font-size:13px;margin-bottom:15px}
+.bottom{position:fixed;bottom:0;left:0;right:0;z-index:20;background:#fff;border-top:1px solid #eee;display:flex;justify-content:space-around;padding:10px 4px max(14px,env(safe-area-inset-bottom))}
+.nav{min-width:54px;background:none;color:#7d8091;font-size:11px;display:flex;flex-direction:column;align-items:center;gap:5px}
+.nav span{font-size:23px}
+.nav.selected{color:var(--purple);font-weight:700}
+.nav.create span{padding:6px 13px;border-radius:13px;background:linear-gradient(120deg,#6154f8,#e94ea2);color:white}
+</style>
 </head>
 <body>
-  <header>
-    <div class="brand">ZYMEKO</div>
-    <span>🔔</span>
-  </header>
+<header>
+<div class="logo">ZYMEKO</div>
+<div class="actions">
+<button class="circle" onclick="go('explore')" aria-label="Search">🔍</button>
+<button class="circle" onclick="notice()" aria-label="Notifications">🔔</button>
+</div>
+</header>
 
-  <main class="container">
-    <section class="welcome">
-      <h1>Your World. Your Story.</h1>
-      <p>Discover, create and connect in one place.</p>
-      <button onclick="showMessage()">Get Started</button>
-    </section>
+<main>
+<section id="home">
+<div class="tabs">
+<button class="tab active" onclick="chooseTab(this)">For You</button>
+<button class="tab" onclick="chooseTab(this)">Following</button>
+<button class="tab" onclick="go('explore')">Explore</button>
+<button class="tab" onclick="notice()">Live</button>
+</div>
 
-    <section class="card">
-      <h2>Explore ZYMEKO</h2>
-      <div class="features">
-        <div class="feature">🎬 Shorts</div>
-        <div class="feature">▶️ Videos</div>
-        <div class="feature">📸 Photos</div>
-        <div class="feature">✨ Stories</div>
-        <div class="feature">💬 Chats</div>
-        <div class="feature">🔴 Live</div>
-        <div class="feature">👥 Communities</div>
-        <div class="feature">🛒 Marketplace</div>
-      </div>
-    </section>
+<div class="stories">
+<div class="story" onclick="go('create')"><div class="avatar"><span>＋</span></div>Your Story</div>
+<div class="story" onclick="notice()"><div class="avatar"><span>👩</span></div>Emma</div>
+<div class="story" onclick="notice()"><div class="avatar"><span>👨</span></div>Alex</div>
+<div class="story" onclick="notice()"><div class="avatar"><span>🎨</span></div>Mia</div>
+<div class="story" onclick="notice()"><div class="avatar"><span>🎵</span></div>Ryan</div>
+</div>
 
-    <section class="card">
-      <h2>Welcome to ZYMEKO</h2>
-      <p>Your social universe starts here.</p>
-      <p>More features are coming soon.</p>
-    </section>
-  </main>
+<div class="hero">
+<h1>Your World.<br>Your Story.</h1>
+<p>Discover amazing moments, share your creativity and connect with the world.</p>
+<button class="primary" onclick="go('create')">Get Started →</button>
+</div>
 
-  <nav>
-    <button onclick="showMessage()">🏠 Home</button>
-    <button onclick="showMessage()">🔎 Explore</button>
-    <button onclick="showMessage()">➕ Create</button>
-    <button onclick="showMessage()">💬 Chats</button>
-    <button onclick="showMessage()">👤 Profile</button>
-  </nav>
+<div class="shortcuts">
+<button class="shortcut" onclick="go('explore')"><span>🎬</span>Shorts</button>
+<button class="shortcut" onclick="go('explore')"><span>▶️</span>Videos</button>
+<button class="shortcut" onclick="go('create')"><span>📸</span>Photos</button>
+<button class="shortcut" onclick="notice()"><span>✨</span>Stories</button>
+<button class="shortcut" onclick="go('chats')"><span>💬</span>Chats</button>
+<button class="shortcut" onclick="notice()"><span>🔴</span>Live</button>
+<button class="shortcut" onclick="go('explore')"><span>👥</span>Groups</button>
+<button class="shortcut" onclick="go('explore')"><span>🛍️</span>Market</button>
+</div>
 
-  <script>
-    function showMessage() {
-      alert("ZYMEKO is under development!");
-    }
-  </script>
+<h2>Discover Feed ✨</h2>
+<article class="card">
+<div class="post-head">
+<div class="photo">🌍</div>
+<div><strong>Travel With Alex</strong><small>@alextravel · Demo</small></div>
+<button class="follow" onclick="follow(this)">Follow</button>
+</div>
+<div class="post-visual"><div><span>🏔️</span>Explore the Canadian Rockies</div></div>
+<div class="post-buttons">
+<button onclick="like(this)" aria-label="Like">♡</button>
+<button onclick="notice()" aria-label="Comment">💬</button>
+<button onclick="sharePost()" aria-label="Share">↗️</button>
+<button onclick="savePost(this)" aria-label="Save">🔖</button>
+</div>
+<div class="post-caption"><strong>Travel With Alex</strong> Beautiful moments in the mountains! 🌄<p><small>Sample content · Demo interactions only</small></p></div>
+</article>
+<div id="posts"></div>
+</section>
+
+<section id="explore" class="hidden">
+<div class="panel">
+<h2>Explore 🌎</h2>
+<input class="search" id="search" placeholder="Search topics..." oninput="filterTopics()">
+<div class="grid" id="topics">
+<div class="tile">🎬 Videos</div>
+<div class="tile">🎵 Music</div>
+<div class="tile">🏔️ Travel</div>
+<div class="tile">🎮 Gaming</div>
+<div class="tile">⚽ Sports</div>
+<div class="tile">🎨 Art</div>
+<div class="tile">👥 Communities</div>
+<div class="tile">🛍️ Marketplace</div>
+</div>
+</div>
+</section>
+
+<section id="create" class="hidden">
+<div class="panel">
+<h2>Create a Post ✨</h2>
+<div class="notice">Demo mode: Posts are temporary and visible only on this device.</div>
+<textarea id="postInput" maxlength="500" placeholder="What's on your mind?"></textarea>
+<p><button class="submit" onclick="publish()">Publish Demo Post</button></p>
+<small>Photo and video uploads will be added later.</small>
+</div>
+</section>
+
+<section id="chats" class="hidden">
+<div class="panel">
+<h2>Messages 💬</h2>
+<div class="notice">Secure messaging requires login and a backend.</div>
+<p>Your conversations will appear here.</p>
+</div>
+</section>
+
+<section id="profile" class="hidden">
+<div class="panel" style="text-align:center">
+<div style="font-size:65px">👤</div>
+<h2>My Profile</h2>
+<p>@zymeko_user</p>
+<p>0 Posts · 0 Followers · 0 Following</p>
+<div class="notice">Demo profile. Real accounts are coming next.</div>
+<button class="submit" onclick="notice()">Edit Profile</button>
+</div>
+</section>
+</main>
+
+<nav class="bottom">
+<button class="nav selected" data-page="home" onclick="go('home')"><span>⌂</span>Home</button>
+<button class="nav" data-page="explore" onclick="go('explore')"><span>⌕</span>Explore</button>
+<button class="nav create" data-page="create" onclick="go('create')"><span>＋</span>Create</button>
+<button class="nav" data-page="chats" onclick="go('chats')"><span>💬</span>Chats</button>
+<button class="nav" data-page="profile" onclick="go('profile')"><span>👤</span>Profile</button>
+</nav>
+
+<script>
+const pages=['home','explore','create','chats','profile'];
+
+function go(page){
+  pages.forEach(p=>{
+    document.getElementById(p).classList.toggle('hidden',p!==page);
+  });
+  document.querySelectorAll('.nav').forEach(b=>{
+    b.classList.toggle('selected',b.dataset.page===page);
+  });
+  window.scrollTo(0,0);
+}
+
+function notice(){
+  alert('This feature is coming in a future ZYMEKO update.');
+}
+
+function chooseTab(button){
+  document.querySelectorAll('.tab').forEach(b=>b.classList.remove('active'));
+  button.classList.add('active');
+  if(button.textContent==='Following'){
+    alert('Following feed will be connected after login setup.');
+  }
+}
+
+function like(button){
+  const liked=button.classList.toggle('liked');
+  button.textContent=liked?'♥':'♡';
+}
+
+function follow(button){
+  button.textContent=button.textContent==='Follow'?'Following':'Follow';
+}
+
+function savePost(button){
+  button.textContent=button.textContent==='🔖'?'✅':'🔖';
+}
+
+function sharePost(){
+  if(navigator.share){
+    navigator.share({title:'ZYMEKO',url:location.href}).catch(()=>{});
+  }else{
+    alert('Share this page: '+location.href);
+  }
+}
+
+function publish(){
+  const input=document.getElementById('postInput');
+  const value=input.value.trim();
+  if(!value){
+    alert('Write something first.');
+    return;
+  }
+  const card=document.createElement('article');
+  card.className='card';
+  const head=document.createElement('div');
+  head.className='post-head';
+  head.textContent='👤 You · Demo post';
+  const content=document.createElement('div');
+  content.className='post-caption';
+  content.style.padding='18px';
+  content.textContent=value;
+  card.append(head,content);
+  document.getElementById('posts').prepend(card);
+  input.value='';
+  go('home');
+}
+
+function filterTopics(){
+  const q=document.getElementById('search').value.toLowerCase();
+  document.querySelectorAll('#topics .tile').forEach(tile=>{
+    tile.style.display=tile.textContent.toLowerCase().includes(q)?'':'none';
+  });
+}
+</script>
 </body>
 </html>
